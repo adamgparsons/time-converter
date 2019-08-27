@@ -4,7 +4,11 @@ function TimeZones({
   selectedTimeZone,
   handleChange,
   handleSubmit,
-  timeZoneList
+  timeZoneList,
+  hours,
+  setHours,
+  minutes,
+  setMinutes
 }) {
   return (
     <div>
@@ -18,7 +22,24 @@ function TimeZones({
             </option>
           ))}
         </select>
-        <button>Add time Zone</button>
+        <br />
+        <br />
+        <label>
+          Hours
+          <input
+            type="text"
+            value={hours}
+            onChange={e => setHours(e.target.value)}
+          />
+        </label>
+        <label>
+          Minutes
+          <input
+            type="text"
+            value={minutes}
+            onChange={e => setMinutes(e.target.value)}
+          />
+        </label>
       </form>
       <h3>{selectedTimeZone.cityName}</h3>
       <input type="text" value={selectedTimeZone.formattedTime} />
