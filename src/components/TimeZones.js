@@ -3,9 +3,9 @@ import React from "react";
 function TimeZones({
   selectedTimeZone,
   handleChange,
-  handleSubmit,
   timeZoneList,
   hours,
+  handleHours,
   setHours,
   minutes,
   setMinutes
@@ -13,7 +13,7 @@ function TimeZones({
   return (
     <div>
       <h2>Enter a Timezone</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <select name="timezones" id="timezones" onChange={handleChange}>
           <option />
           {timeZoneList.map((timeZone, i) => (
@@ -26,11 +26,7 @@ function TimeZones({
         <br />
         <label>
           Hours
-          <input
-            type="text"
-            value={hours}
-            onChange={e => setHours(e.target.value)}
-          />
+          <input type="text" value={hours} onChange={handleHours} />
         </label>
         <label>
           Minutes
